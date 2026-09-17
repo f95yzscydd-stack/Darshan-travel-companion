@@ -1,0 +1,1675 @@
+{
+  "schemaVersion": 2,
+  "migrationNotes": {
+    "countries": "Migrate Trip.country string to Trip.countries string[] while keeping backward compatibility.",
+    "stays": "Mallorca uses three fixed stays. Add CityPlan.stays[] and ItineraryDay.stayId; retain accommodation for older Lisbon/Porto data if already used.",
+    "transportBookings": "Add flights and rental-car bookings as structured transport records; never store confirmation codes or email in shareable seed data."
+  },
+  "tripPatch": {
+    "displayTitle": "Portugal + Mallorca 2026",
+    "countries": [
+      "Portugal",
+      "Spain"
+    ],
+    "appendOnly": true
+  },
+  "travelerPreferencesPatch": {
+    "dietaryNotes": [
+      "Prefer minimal pork, but not strict",
+      "Seafood welcome",
+      "Chicken preferred where practical"
+    ],
+    "alcohol": true,
+    "coffee": {
+      "morningWindow": "08:00-11:30",
+      "afternoonWindow": "13:30-15:45",
+      "after16Preference": "Prefer pastry, tea or decaf; do not hide regular coffee",
+      "pastryPriority": [
+        "traditional local pastries",
+        "croissants",
+        "laminated pastries"
+      ],
+      "maxPreferredDetourMinutes": 10,
+      "showLiveRating": true,
+      "showReviewCount": true,
+      "showPhoto": true,
+      "showOpenNow": true
+    }
+  },
+  "cityPlan": {
+    "id": "mallorca-2026",
+    "city": "Mallorca",
+    "region": "Balearic Islands",
+    "country": "Spain",
+    "startDate": "2026-09-25",
+    "endDate": "2026-10-02",
+    "timezone": "Europe/Madrid",
+    "stays": [
+      {
+        "id": "stay-port-pollenca",
+        "name": "Port de Pollenca Airbnb - Windsong",
+        "type": "airbnb",
+        "address": "Poligon, Passeig d'Anglada Camarasa, 73 3a planta, Port de Pollenca, Illes Balears 07470, Spain",
+        "startDate": "2026-09-25",
+        "endDate": "2026-09-27",
+        "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Passeig+d%27Anglada+Camarasa+73+Port+de+Pollenca+Spain",
+        "notes": [
+          "Beachfront/Pine Walk location",
+          "Host note: traffic-free waterfront zone; no dedicated parking; expect short walk with luggage from public parking"
+        ],
+        "validationStatus": "validated-address"
+      },
+      {
+        "id": "stay-salino",
+        "name": "Hotel Salino Port Soller - Adults Only",
+        "type": "hotel",
+        "address": "Cami del Far, 15, 07100 Port de Soller, Illes Balears, Spain",
+        "startDate": "2026-09-27",
+        "endDate": "2026-09-29",
+        "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Hotel+Salino+Port+Soller+Cami+del+Far+15+Mallorca",
+        "notes": [
+          "Official 4-star superior adults-only hotel",
+          "Luggage room and 24h reception",
+          "Early check-in until 13:00 subject to availability"
+        ],
+        "validationStatus": "official-validated"
+      },
+      {
+        "id": "stay-garonda",
+        "name": "Pure Salt Garonda - Adults Only",
+        "type": "hotel",
+        "address": "Carrer de la Mar Negra, 2, 07610 Palma, Illes Balears, Spain",
+        "startDate": "2026-09-29",
+        "endDate": "2026-10-02",
+        "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Pure+Salt+Garonda+Carrer+de+la+Mar+Negra+2+Mallorca",
+        "notes": [
+          "Beachfront Playa de Palma",
+          "Approx 10-15 min by car from PMI",
+          "Approx 15-20 min by car to central Palma",
+          "Current listings show no on-site parking; confirm recommended overnight parking for Sep 29"
+        ],
+        "validationStatus": "official-validated"
+      }
+    ],
+    "transportBookings": [
+      {
+        "id": "flight-opo-pmi",
+        "type": "flight",
+        "carrier": "easyJet",
+        "flightNumber": "EJU7384",
+        "date": "2026-09-25",
+        "origin": "OPO",
+        "destination": "PMI",
+        "depart": "08:35",
+        "arrive": "11:20",
+        "passengers": 2,
+        "privateBookingFieldsStored": false
+      },
+      {
+        "id": "rental-hertz-mallorca",
+        "type": "rental_car",
+        "provider": "Hertz",
+        "pickupLocation": "Palma de Mallorca Airport (PMI)",
+        "pickup": "2026-09-25T12:00:00",
+        "returnLocation": "Palma de Mallorca Airport (PMI)",
+        "return": "2026-09-30T23:00:00",
+        "vehicleClass": "Midsize 4 Door - Skoda Karoq or similar",
+        "price": 231.3,
+        "currency": "EUR",
+        "notes": [
+          "Hertz Five Star one-class upgrade requested, subject to availability",
+          "Verify transmission, CDW/theft excess, fuel policy, deposit and mileage before pickup"
+        ],
+        "privateBookingFieldsStored": false
+      },
+      {
+        "id": "flight-pmi-lis",
+        "type": "flight",
+        "carrier": "Vueling",
+        "flightNumber": "VY3436",
+        "date": "2026-10-02",
+        "origin": "PMI",
+        "destination": "LIS",
+        "depart": "07:05",
+        "arrive": "08:15",
+        "passengers": 2,
+        "privateBookingFieldsStored": false
+      }
+    ],
+    "days": [
+      {
+        "id": "mallorca-2026-09-25",
+        "date": "2026-09-25",
+        "title": "Arrival + Port de Pollenca",
+        "theme": "Keep arrival deliberately light: waterfront, Pine Walk, strong dinner.",
+        "stayId": "stay-port-pollenca",
+        "segments": [
+          {
+            "id": "d1-flight",
+            "timeBlock": "08:35",
+            "category": "flight",
+            "title": "easyJet EJU7384 OPO -> PMI",
+            "description": "Arrive PMI 11:20. Bag collection then Hertz.",
+            "priority": "must-do",
+            "orderIndex": 0,
+            "isLocked": true,
+            "reservationRecommended": false
+          },
+          {
+            "id": "d1-hertz",
+            "timeBlock": "12:00",
+            "category": "rental",
+            "title": "Hertz pickup at PMI",
+            "description": "Skoda Karoq class or similar. Photograph all panels/wheels; verify transmission, excess, fuel, deposit, mileage.",
+            "priority": "must-do",
+            "orderIndex": 1,
+            "isLocked": true,
+            "reservationRecommended": false,
+            "placeId": "pmi-airport"
+          },
+          {
+            "id": "d1-drive",
+            "timeBlock": "12:45",
+            "category": "transport",
+            "title": "Drive to Port de Pollenca Airbnb",
+            "description": "Planning 50-60 min. Public parking + short luggage walk; waterfront zone is traffic-free.",
+            "priority": "must-do",
+            "orderIndex": 2,
+            "isLocked": false,
+            "reservationRecommended": false,
+            "placeId": "airbnb-port-pollenca",
+            "transportFromPrevious": {
+              "mode": "driving",
+              "planningMinutes": 55,
+              "liveRouteRequired": true
+            }
+          },
+          {
+            "id": "d1-coffee",
+            "timeBlock": "15:00",
+            "category": "coffee",
+            "title": "Optional caffeine + pastry",
+            "description": "Specialty coffee and bakes if needed after travel.",
+            "priority": "optional",
+            "orderIndex": 3,
+            "isLocked": false,
+            "reservationRecommended": false,
+            "placeId": "milu",
+            "alternatives": [
+              "can-galmar"
+            ]
+          },
+          {
+            "id": "d1-pine",
+            "timeBlock": "16:00",
+            "category": "chill",
+            "title": "Port de Pollenca beach + Pine Walk",
+            "description": "Default arrival-day plan. Playa de Muro remains an optional high-energy pivot, not the default.",
+            "priority": "must-do",
+            "orderIndex": 4,
+            "isLocked": false,
+            "reservationRecommended": false
+          },
+          {
+            "id": "d1-dinner",
+            "timeBlock": "19:45",
+            "category": "dinner",
+            "title": "Dinner at Ca'n Josep",
+            "description": "Sea-view seafood/Mallorcan dinner. Request window/sea-view table.",
+            "priority": "must-do",
+            "orderIndex": 5,
+            "isLocked": false,
+            "reservationRecommended": true,
+            "placeId": "can-josep",
+            "alternatives": [
+              "no31"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "mallorca-2026-09-26",
+        "date": "2026-09-26",
+        "title": "Formentor without parking stress",
+        "theme": "Use TIB 334 during the 2026 private-car restriction window.",
+        "stayId": "stay-port-pollenca",
+        "segments": [
+          {
+            "id": "d2-breakfast",
+            "timeBlock": "08:00",
+            "category": "coffee",
+            "title": "Coffee + breakfast near Airbnb",
+            "description": "Keep breakfast relaxed; pack water, beach gear and a snack.",
+            "priority": "recommended",
+            "orderIndex": 0,
+            "isLocked": false,
+            "reservationRecommended": false,
+            "placeId": "milu",
+            "alternatives": [
+              "can-galmar"
+            ]
+          },
+          {
+            "id": "d2-bus",
+            "timeBlock": "09:45",
+            "category": "transit",
+            "title": "TIB 334 toward Formentor",
+            "description": "Walk roughly 5-10 min to Port de Pollenca Centre stop. Confirm live timetable the same week.",
+            "priority": "must-do",
+            "orderIndex": 1,
+            "isLocked": true,
+            "reservationRecommended": false
+          },
+          {
+            "id": "d2-mirador",
+            "timeBlock": "09:55",
+            "category": "attraction",
+            "title": "Mirador Es Colomer",
+            "description": "30-40 min for cliffs, bay and photos.",
+            "priority": "must-do",
+            "orderIndex": 2,
+            "isLocked": false,
+            "reservationRecommended": false,
+            "placeId": "mirador-colomer"
+          },
+          {
+            "id": "d2-lighthouse",
+            "timeBlock": "11:10",
+            "category": "attraction",
+            "title": "Far de Formentor",
+            "description": "Use next 334 service from Mirador. Target about 45 min.",
+            "priority": "must-do",
+            "orderIndex": 3,
+            "isLocked": false,
+            "reservationRecommended": false,
+            "placeId": "formentor-lighthouse"
+          },
+          {
+            "id": "d2-beach",
+            "timeBlock": "12:20",
+            "category": "beach",
+            "title": "Platja de Formentor",
+            "description": "Main chill block: swim, loungers if available, light lunch/snacks.",
+            "priority": "must-do",
+            "orderIndex": 4,
+            "isLocked": false,
+            "reservationRecommended": false,
+            "placeId": "formentor-beach"
+          },
+          {
+            "id": "d2-return",
+            "timeBlock": "15:00",
+            "category": "transit",
+            "title": "TIB 334 back to Port de Pollenca",
+            "description": "Choose 15:00 or later service based on energy. Confirm live schedule.",
+            "priority": "recommended",
+            "orderIndex": 5,
+            "isLocked": false,
+            "reservationRecommended": false
+          },
+          {
+            "id": "d2-dinner",
+            "timeBlock": "19:45",
+            "category": "dinner",
+            "title": "Dinner at No.31",
+            "description": "Modern dinner + cocktail night.",
+            "priority": "must-do",
+            "orderIndex": 6,
+            "isLocked": false,
+            "reservationRecommended": true,
+            "placeId": "no31",
+            "alternatives": [
+              "can-josep"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "mallorca-2026-09-27",
+        "date": "2026-09-27",
+        "title": "Pollenca market + Sa Calobra by sea",
+        "theme": "Market morning, transfer luggage, then Sa Calobra by boat; road version is weather backup.",
+        "stayId": "stay-salino",
+        "segments": [
+          {
+            "id": "d3-checkout",
+            "timeBlock": "08:15",
+            "category": "checkout",
+            "title": "Check out Airbnb",
+            "description": "Load car from public parking and drive to Pollenca old town.",
+            "priority": "must-do",
+            "orderIndex": 0,
+            "isLocked": true,
+            "reservationRecommended": false
+          },
+          {
+            "id": "d3-market",
+            "timeBlock": "08:30",
+            "category": "market",
+            "title": "Pollenca Sunday Market",
+            "description": "Browse Plaça Major and surrounding lanes; add Calvari Steps if comfortable.",
+            "priority": "must-do",
+            "orderIndex": 1,
+            "isLocked": false,
+            "reservationRecommended": false,
+            "placeId": "pollenca-market"
+          },
+          {
+            "id": "d3-coffee",
+            "timeBlock": "09:15",
+            "category": "coffee",
+            "title": "Coffee at Bo's",
+            "description": "Specialty coffee/brunch-style stop in old town.",
+            "priority": "recommended",
+            "orderIndex": 2,
+            "isLocked": false,
+            "reservationRecommended": false,
+            "placeId": "bos-pollenca"
+          },
+          {
+            "id": "d3-drive-soller",
+            "timeBlock": "10:45",
+            "category": "transport",
+            "title": "Drive to Hotel Salino Port Soller",
+            "description": "Planning 50-60 min. Store luggage; early check-in until 13:00 is subject to availability.",
+            "priority": "must-do",
+            "orderIndex": 3,
+            "isLocked": false,
+            "reservationRecommended": false,
+            "placeId": "hotel-salino",
+            "transportFromPrevious": {
+              "mode": "driving",
+              "planningMinutes": 55,
+              "liveRouteRequired": true
+            }
+          },
+          {
+            "id": "d3-boat-out",
+            "timeBlock": "13:00",
+            "category": "boat",
+            "title": "Port de Soller -> Sa Calobra",
+            "description": "Barcos Azules. Approx 1 hour. Confirm by phone/day before due to weather.",
+            "priority": "must-do",
+            "orderIndex": 4,
+            "isLocked": false,
+            "reservationRecommended": true,
+            "estimatedCost": {
+              "amount": 35,
+              "currency": "EUR",
+              "basis": "adult roundtrip list price before online discount"
+            }
+          },
+          {
+            "id": "d3-calobra",
+            "timeBlock": "14:00",
+            "category": "beach",
+            "title": "Sa Calobra + Torrent de Pareis",
+            "description": "Walk rock tunnels; beach/canyon; keep lunch simple.",
+            "priority": "must-do",
+            "orderIndex": 5,
+            "isLocked": false,
+            "reservationRecommended": false,
+            "placeId": "sa-calobra"
+          },
+          {
+            "id": "d3-boat-back",
+            "timeBlock": "16:40",
+            "category": "boat",
+            "title": "Return to Port de Soller",
+            "description": "Operator publishes 16:40/16:45 depending page; reconfirm day before.",
+            "priority": "must-do",
+            "orderIndex": 6,
+            "isLocked": false,
+            "reservationRecommended": false
+          },
+          {
+            "id": "d3-dinner",
+            "timeBlock": "19:45",
+            "category": "dinner",
+            "title": "Dinner at S'Amfora",
+            "description": "Waterfront seafood/paella; good post-boat dinner.",
+            "priority": "must-do",
+            "orderIndex": 7,
+            "isLocked": false,
+            "reservationRecommended": true,
+            "placeId": "samfora",
+            "alternatives": [
+              "ses-oliveres"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "mallorca-2026-09-28",
+        "date": "2026-09-28",
+        "title": "Tramuntana villages",
+        "theme": "Efficient one-direction mountain loop: Fornalutx -> Deia -> Son Marroig -> Valldemossa.",
+        "stayId": "stay-salino",
+        "segments": [
+          {
+            "id": "d4-fornalutx",
+            "timeBlock": "09:15",
+            "category": "attraction",
+            "title": "Fornalutx",
+            "description": "Slow village walk, stone lanes and artisan shops.",
+            "priority": "must-do",
+            "orderIndex": 0,
+            "isLocked": false,
+            "reservationRecommended": false,
+            "placeId": "fornalutx",
+            "transportFromPrevious": {
+              "mode": "driving",
+              "planningMinutes": 20,
+              "liveRouteRequired": true
+            }
+          },
+          {
+            "id": "d4-coffee",
+            "timeBlock": "09:30",
+            "category": "coffee",
+            "title": "Corella Cafe",
+            "description": "Excellent specialty coffee + house bakes.",
+            "priority": "must-do",
+            "orderIndex": 1,
+            "isLocked": false,
+            "reservationRecommended": false,
+            "placeId": "corella"
+          },
+          {
+            "id": "d4-deia",
+            "timeBlock": "10:45",
+            "category": "attraction",
+            "title": "Deia",
+            "description": "60-90 min for stone lanes, galleries and viewpoints. Cala Deia remains intentionally skipped.",
+            "priority": "must-do",
+            "orderIndex": 2,
+            "isLocked": false,
+            "reservationRecommended": false,
+            "placeId": "deia",
+            "transportFromPrevious": {
+              "mode": "driving",
+              "planningMinutes": 20,
+              "liveRouteRequired": true
+            }
+          },
+          {
+            "id": "d4-sonmarroig",
+            "timeBlock": "12:15",
+            "category": "viewpoint",
+            "title": "Son Marroig",
+            "description": "Optional interior; exterior/viewpoint recommended if weather is clear.",
+            "priority": "recommended",
+            "orderIndex": 3,
+            "isLocked": false,
+            "reservationRecommended": false,
+            "placeId": "son-marroig",
+            "transportFromPrevious": {
+              "mode": "driving",
+              "planningMinutes": 10,
+              "liveRouteRequired": true
+            }
+          },
+          {
+            "id": "d4-valldemossa",
+            "timeBlock": "13:00",
+            "category": "attraction",
+            "title": "Valldemossa",
+            "description": "Spend the longest block here: lanes, shops, Charterhouse only if interested.",
+            "priority": "must-do",
+            "orderIndex": 4,
+            "isLocked": false,
+            "reservationRecommended": false,
+            "placeId": "valldemossa",
+            "transportFromPrevious": {
+              "mode": "driving",
+              "planningMinutes": 10,
+              "liveRouteRequired": true
+            }
+          },
+          {
+            "id": "d4-pastry",
+            "timeBlock": "14:15",
+            "category": "coffee",
+            "title": "Coca de patata + coffee",
+            "description": "Coffee at Barbaflorida; traditional coca de patata at Ca n Molinas.",
+            "priority": "recommended",
+            "orderIndex": 5,
+            "isLocked": false,
+            "reservationRecommended": false,
+            "placeId": "barbaflorida",
+            "alternatives": [
+              "can-molinas"
+            ]
+          },
+          {
+            "id": "d4-return",
+            "timeBlock": "16:15",
+            "category": "transport",
+            "title": "Return to Hotel Salino",
+            "description": "Planning 35 min; use live route.",
+            "priority": "recommended",
+            "orderIndex": 6,
+            "isLocked": false,
+            "reservationRecommended": false,
+            "transportFromPrevious": {
+              "mode": "driving",
+              "planningMinutes": 35,
+              "liveRouteRequired": true
+            }
+          },
+          {
+            "id": "d4-dinner",
+            "timeBlock": "19:45",
+            "category": "dinner",
+            "title": "Dinner at Goia",
+            "description": "More modern/trendy final Soller night; Ses Oliveres is the reliable backup.",
+            "priority": "must-do",
+            "orderIndex": 7,
+            "isLocked": false,
+            "reservationRecommended": true,
+            "placeId": "goia",
+            "alternatives": [
+              "ses-oliveres"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "mallorca-2026-09-29",
+        "date": "2026-09-29",
+        "title": "Es Trenc transfer day",
+        "theme": "Beach on the transfer south, then hotel reset and Puerto Portals dinner.",
+        "stayId": "stay-garonda",
+        "segments": [
+          {
+            "id": "d5-checkout",
+            "timeBlock": "10:00",
+            "category": "checkout",
+            "title": "Check out Hotel Salino",
+            "description": "Drive south; do not add Banyalbufar/Estellencs to this route.",
+            "priority": "must-do",
+            "orderIndex": 0,
+            "isLocked": false,
+            "reservationRecommended": false
+          },
+          {
+            "id": "d5-estrenc",
+            "timeBlock": "11:15",
+            "category": "beach",
+            "title": "Es Trenc",
+            "description": "About 3 hours; allow time for paid parking/access and a simple lunch.",
+            "priority": "must-do",
+            "orderIndex": 1,
+            "isLocked": false,
+            "reservationRecommended": false,
+            "placeId": "es-trenc",
+            "transportFromPrevious": {
+              "mode": "driving",
+              "planningMinutes": 75,
+              "liveRouteRequired": true
+            }
+          },
+          {
+            "id": "d5-garonda",
+            "timeBlock": "15:15",
+            "category": "checkin",
+            "title": "Check in Pure Salt Garonda",
+            "description": "Planning 35-45 min from Es Trenc. Important: confirm overnight parking plan with hotel; current listings show no on-site parking.",
+            "priority": "must-do",
+            "orderIndex": 2,
+            "isLocked": true,
+            "reservationRecommended": false,
+            "placeId": "pure-salt-garonda",
+            "transportFromPrevious": {
+              "mode": "driving",
+              "planningMinutes": 40,
+              "liveRouteRequired": true
+            }
+          },
+          {
+            "id": "d5-reset",
+            "timeBlock": "16:00",
+            "category": "chill",
+            "title": "Pool / spa / Playa de Palma",
+            "description": "Use hotel time deliberately before evening.",
+            "priority": "recommended",
+            "orderIndex": 3,
+            "isLocked": false,
+            "reservationRecommended": false
+          },
+          {
+            "id": "d5-portals",
+            "timeBlock": "19:15",
+            "category": "transport",
+            "title": "Drive to Puerto Portals",
+            "description": "Allow approx 25-35 min depending traffic; use live routing.",
+            "priority": "recommended",
+            "orderIndex": 4,
+            "isLocked": false,
+            "reservationRecommended": false,
+            "transportFromPrevious": {
+              "mode": "driving",
+              "planningMinutes": 30,
+              "liveRouteRequired": true
+            }
+          },
+          {
+            "id": "d5-dinner",
+            "timeBlock": "20:00",
+            "category": "dinner",
+            "title": "Dinner at Yara Portals",
+            "description": "Japanese-Mediterranean, sushi/robata, marina terrace and cocktails.",
+            "priority": "must-do",
+            "orderIndex": 5,
+            "isLocked": false,
+            "reservationRecommended": true,
+            "placeId": "yara",
+            "alternatives": [
+              "lila"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "mallorca-2026-09-30",
+        "date": "2026-09-30",
+        "title": "Southeast calas + Santanyi",
+        "theme": "Do the tiny/difficult cove first, then relax at Cala Llombards, polished Santanyi lunch, return Hertz early.",
+        "stayId": "stay-garonda",
+        "segments": [
+          {
+            "id": "d6-depart",
+            "timeBlock": "07:30",
+            "category": "transport",
+            "title": "Leave Pure Salt Garonda",
+            "description": "Take water, shoes and beach kit. Use live parking/access info for Calo des Moro.",
+            "priority": "must-do",
+            "orderIndex": 0,
+            "isLocked": false,
+            "reservationRecommended": false
+          },
+          {
+            "id": "d6-calo",
+            "timeBlock": "08:20",
+            "category": "beach",
+            "title": "Calo des Moro + Cala s Almunia",
+            "description": "Go early; photos and short swim. Proper shoes; access can be steep.",
+            "priority": "must-do",
+            "orderIndex": 1,
+            "isLocked": false,
+            "reservationRecommended": false,
+            "placeId": "calo-moro",
+            "transportFromPrevious": {
+              "mode": "driving",
+              "planningMinutes": 50,
+              "liveRouteRequired": true
+            }
+          },
+          {
+            "id": "d6-llombards",
+            "timeBlock": "10:30",
+            "category": "beach",
+            "title": "Cala Llombards",
+            "description": "Easier beach block after the difficult cove.",
+            "priority": "must-do",
+            "orderIndex": 2,
+            "isLocked": false,
+            "reservationRecommended": false,
+            "placeId": "cala-llombards",
+            "transportFromPrevious": {
+              "mode": "driving",
+              "planningMinutes": 15,
+              "liveRouteRequired": true
+            }
+          },
+          {
+            "id": "d6-santanyi",
+            "timeBlock": "13:00",
+            "category": "lunch",
+            "title": "Santanyi lunch at Restaurant Laudat",
+            "description": "Polished courtyard lunch; fish/seafood/vegetables fit preferences.",
+            "priority": "must-do",
+            "orderIndex": 3,
+            "isLocked": false,
+            "reservationRecommended": true,
+            "placeId": "laudat",
+            "transportFromPrevious": {
+              "mode": "driving",
+              "planningMinutes": 10,
+              "liveRouteRequired": true
+            },
+            "alternatives": [
+              "can-gelat"
+            ]
+          },
+          {
+            "id": "d6-coffee",
+            "timeBlock": "14:45",
+            "category": "coffee",
+            "title": "Optional coffee/cake at Can Gelat",
+            "description": "Use only if you want an afternoon caffeine boost.",
+            "priority": "optional",
+            "orderIndex": 4,
+            "isLocked": false,
+            "reservationRecommended": false,
+            "placeId": "can-gelat"
+          },
+          {
+            "id": "d6-returnhotel",
+            "timeBlock": "16:15",
+            "category": "transport",
+            "title": "Return to Pure Salt Garonda",
+            "description": "Planning 40-50 min. Shower and rest.",
+            "priority": "recommended",
+            "orderIndex": 5,
+            "isLocked": false,
+            "reservationRecommended": false,
+            "transportFromPrevious": {
+              "mode": "driving",
+              "planningMinutes": 45,
+              "liveRouteRequired": true
+            }
+          },
+          {
+            "id": "d6-hertz",
+            "timeBlock": "21:30",
+            "category": "rental",
+            "title": "Return Hertz at PMI",
+            "description": "Contract deadline 23:00; target 21:30-22:00 to protect buffer. Uber back to hotel.",
+            "priority": "must-do",
+            "orderIndex": 6,
+            "isLocked": true,
+            "reservationRecommended": false,
+            "placeId": "pmi-airport",
+            "transportFromPrevious": {
+              "mode": "driving",
+              "planningMinutes": 15,
+              "liveRouteRequired": true
+            }
+          }
+        ]
+      },
+      {
+        "id": "mallorca-2026-10-01",
+        "date": "2026-10-01",
+        "title": "Car-free Palma finale",
+        "theme": "Sleep in, hotel beach/pool, then old town, early dinner, theatrical bar and craft cocktails.",
+        "stayId": "stay-garonda",
+        "segments": [
+          {
+            "id": "d7-morning",
+            "timeBlock": "09:00",
+            "category": "chill",
+            "title": "Hotel breakfast + Playa de Palma",
+            "description": "No car today. Slow morning and pool/beach.",
+            "priority": "recommended",
+            "orderIndex": 0,
+            "isLocked": false,
+            "reservationRecommended": false
+          },
+          {
+            "id": "d7-uber",
+            "timeBlock": "14:15",
+            "category": "transport",
+            "title": "Uber to Palma Old Town",
+            "description": "Planning 15-20 min. Hotel is also served by airport/Palma buses, but Uber is simplest.",
+            "priority": "recommended",
+            "orderIndex": 1,
+            "isLocked": false,
+            "reservationRecommended": false,
+            "placeId": "palma-old-town",
+            "transportFromPrevious": {
+              "mode": "rideshare",
+              "planningMinutes": 20,
+              "liveRouteRequired": true
+            }
+          },
+          {
+            "id": "d7-palma",
+            "timeBlock": "14:30",
+            "category": "attraction",
+            "title": "La Seu + old town + Passeig del Born",
+            "description": "Cathedral exterior/interior as desired, shopping and lanes.",
+            "priority": "must-do",
+            "orderIndex": 2,
+            "isLocked": false,
+            "reservationRecommended": false,
+            "placeId": "palma-old-town"
+          },
+          {
+            "id": "d7-coffee",
+            "timeBlock": "15:15",
+            "category": "coffee",
+            "title": "Coffee before 4 PM",
+            "description": "Mistral for coffee quality; Rosevelvet if pastries matter more and timing allows.",
+            "priority": "recommended",
+            "orderIndex": 3,
+            "isLocked": false,
+            "reservationRecommended": false,
+            "placeId": "mistral",
+            "alternatives": [
+              "rosevelvet"
+            ]
+          },
+          {
+            "id": "d7-dinner",
+            "timeBlock": "18:00",
+            "category": "dinner",
+            "title": "Early dinner at El Camino",
+            "description": "Chef-led tapas counter. Seafood/vegetable plates easy; pork items optional.",
+            "priority": "must-do",
+            "orderIndex": 4,
+            "isLocked": false,
+            "reservationRecommended": true,
+            "placeId": "elcamino",
+            "alternatives": [
+              "ombu"
+            ]
+          },
+          {
+            "id": "d7-abaco",
+            "timeBlock": "20:00",
+            "category": "bar",
+            "title": "One drink at Bar Abaco",
+            "description": "Go for visual spectacle/ambience; no reservation.",
+            "priority": "recommended",
+            "orderIndex": 5,
+            "isLocked": false,
+            "reservationRecommended": false,
+            "placeId": "abaco"
+          },
+          {
+            "id": "d7-cocktail",
+            "timeBlock": "21:15",
+            "category": "bar",
+            "title": "After Landing Cocktail Art",
+            "description": "Make this the quality-cocktail stop.",
+            "priority": "must-do",
+            "orderIndex": 6,
+            "isLocked": false,
+            "reservationRecommended": false,
+            "placeId": "afterlanding"
+          },
+          {
+            "id": "d7-uberback",
+            "timeBlock": "22:30",
+            "category": "transport",
+            "title": "Uber back to Pure Salt Garonda",
+            "description": "Keep final night enjoyable but not too late before 07:05 flight.",
+            "priority": "recommended",
+            "orderIndex": 7,
+            "isLocked": false,
+            "reservationRecommended": false,
+            "transportFromPrevious": {
+              "mode": "rideshare",
+              "planningMinutes": 20,
+              "liveRouteRequired": true
+            }
+          }
+        ]
+      },
+      {
+        "id": "mallorca-2026-10-02",
+        "date": "2026-10-02",
+        "title": "Mallorca -> Lisbon",
+        "theme": "Very early airport transfer.",
+        "stayId": "stay-garonda",
+        "segments": [
+          {
+            "id": "d8-uber",
+            "timeBlock": "04:40",
+            "category": "transport",
+            "title": "Uber to PMI",
+            "description": "Target airport arrival around 05:00. Pre-book/confirm ride the evening before.",
+            "priority": "must-do",
+            "orderIndex": 0,
+            "isLocked": true,
+            "reservationRecommended": false,
+            "placeId": "pmi-airport",
+            "transportFromPrevious": {
+              "mode": "rideshare",
+              "planningMinutes": 15,
+              "liveRouteRequired": true
+            }
+          },
+          {
+            "id": "d8-flight",
+            "timeBlock": "07:05",
+            "category": "flight",
+            "title": "Vueling VY3436 PMI -> LIS",
+            "description": "Arrive Lisbon 08:15.",
+            "priority": "must-do",
+            "orderIndex": 1,
+            "isLocked": true,
+            "reservationRecommended": false
+          }
+        ]
+      }
+    ]
+  },
+  "places": [
+    {
+      "id": "pmi-airport",
+      "name": "Palma de Mallorca Airport",
+      "category": "airport",
+      "googlePlaceQuery": "Palma de Mallorca Airport",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Palma+de+Mallorca+Airport",
+      "priority": "recommended",
+      "reservationRecommended": false,
+      "validationStatus": "validated-2026-09-17"
+    },
+    {
+      "id": "airbnb-port-pollenca",
+      "name": "Port de Pollenca Airbnb",
+      "category": "stay",
+      "googlePlaceQuery": "Passeig d'Anglada Camarasa 73 Port de Pollenca",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Passeig+d%27Anglada+Camarasa+73+Port+de+Pollenca+Spain",
+      "priority": "recommended",
+      "reservationRecommended": false,
+      "validationStatus": "validated-2026-09-17",
+      "notes": [
+        "Beachfront/Pine Walk; public parking + short luggage walk"
+      ]
+    },
+    {
+      "id": "hotel-salino",
+      "name": "Hotel Salino Port Soller",
+      "category": "stay",
+      "googlePlaceQuery": "Hotel Salino Port Soller",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Hotel+Salino+Port+Soller+Cami+del+Far+15+Mallorca",
+      "priority": "recommended",
+      "reservationRecommended": false,
+      "validationStatus": "validated-2026-09-17"
+    },
+    {
+      "id": "pure-salt-garonda",
+      "name": "Pure Salt Garonda",
+      "category": "stay",
+      "googlePlaceQuery": "Pure Salt Garonda",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Pure+Salt+Garonda+Carrer+de+la+Mar+Negra+2+Mallorca",
+      "priority": "recommended",
+      "reservationRecommended": false,
+      "validationStatus": "validated-2026-09-17"
+    },
+    {
+      "id": "mirador-colomer",
+      "name": "Mirador Es Colomer",
+      "category": "attraction",
+      "googlePlaceQuery": "Mirador Es Colomer Mallorca",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Mirador+Es+Colomer+Mallorca",
+      "priority": "must-do",
+      "reservationRecommended": false,
+      "validationStatus": "validated-2026-09-17"
+    },
+    {
+      "id": "formentor-lighthouse",
+      "name": "Far de Formentor",
+      "category": "attraction",
+      "googlePlaceQuery": "Far de Formentor Mallorca",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Far+de+Formentor+Mallorca",
+      "priority": "must-do",
+      "reservationRecommended": false,
+      "validationStatus": "validated-2026-09-17"
+    },
+    {
+      "id": "formentor-beach",
+      "name": "Platja de Formentor",
+      "category": "beach",
+      "googlePlaceQuery": "Platja de Formentor Mallorca",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Platja+de+Formentor+Mallorca",
+      "priority": "must-do",
+      "reservationRecommended": false,
+      "validationStatus": "validated-2026-09-17"
+    },
+    {
+      "id": "pollenca-market",
+      "name": "Pollenca Sunday Market",
+      "category": "market",
+      "googlePlaceQuery": "Pollenca Sunday Market",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Pollenca+Sunday+Market+Placa+Major",
+      "priority": "must-do",
+      "reservationRecommended": false,
+      "validationStatus": "validated-2026-09-17"
+    },
+    {
+      "id": "sa-calobra",
+      "name": "Sa Calobra / Torrent de Pareis",
+      "category": "beach",
+      "googlePlaceQuery": "Sa Calobra Mallorca",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Sa+Calobra+Mallorca",
+      "priority": "must-do",
+      "reservationRecommended": false,
+      "validationStatus": "validated-2026-09-17"
+    },
+    {
+      "id": "fornalutx",
+      "name": "Fornalutx",
+      "category": "village",
+      "googlePlaceQuery": "Fornalutx Mallorca",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Fornalutx+Mallorca",
+      "priority": "must-do",
+      "reservationRecommended": false,
+      "validationStatus": "validated-2026-09-17"
+    },
+    {
+      "id": "deia",
+      "name": "Deia",
+      "category": "village",
+      "googlePlaceQuery": "Deia Mallorca",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Deia+Mallorca",
+      "priority": "must-do",
+      "reservationRecommended": false,
+      "validationStatus": "validated-2026-09-17"
+    },
+    {
+      "id": "son-marroig",
+      "name": "Son Marroig",
+      "category": "viewpoint",
+      "googlePlaceQuery": "Son Marroig Mallorca",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Son+Marroig+Mallorca",
+      "priority": "recommended",
+      "reservationRecommended": false,
+      "validationStatus": "validated-2026-09-17"
+    },
+    {
+      "id": "valldemossa",
+      "name": "Valldemossa",
+      "category": "village",
+      "googlePlaceQuery": "Valldemossa Mallorca",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Valldemossa+Mallorca",
+      "priority": "must-do",
+      "reservationRecommended": false,
+      "validationStatus": "validated-2026-09-17"
+    },
+    {
+      "id": "es-trenc",
+      "name": "Es Trenc",
+      "category": "beach",
+      "googlePlaceQuery": "Es Trenc Mallorca",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Es+Trenc+Mallorca",
+      "priority": "must-do",
+      "reservationRecommended": false,
+      "validationStatus": "validated-2026-09-17"
+    },
+    {
+      "id": "calo-moro",
+      "name": "Calo des Moro / Cala s Almunia",
+      "category": "beach",
+      "googlePlaceQuery": "Calo des Moro Mallorca",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Calo+des+Moro+Mallorca",
+      "priority": "must-do",
+      "reservationRecommended": false,
+      "validationStatus": "validated-2026-09-17",
+      "notes": [
+        "Go early; access/parking rules can change; obey current signage; proper shoes recommended"
+      ]
+    },
+    {
+      "id": "cala-llombards",
+      "name": "Cala Llombards",
+      "category": "beach",
+      "googlePlaceQuery": "Cala Llombards Mallorca",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Cala+Llombards+Mallorca",
+      "priority": "must-do",
+      "reservationRecommended": false,
+      "validationStatus": "validated-2026-09-17"
+    },
+    {
+      "id": "santanyi",
+      "name": "Santanyi",
+      "category": "town",
+      "googlePlaceQuery": "Santanyi Mallorca",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Santanyi+Mallorca",
+      "priority": "recommended",
+      "reservationRecommended": false,
+      "validationStatus": "validated-2026-09-17"
+    },
+    {
+      "id": "palma-old-town",
+      "name": "Palma Old Town / Cathedral",
+      "category": "attraction",
+      "googlePlaceQuery": "Palma Cathedral Mallorca",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Palma+Cathedral+Mallorca",
+      "priority": "must-do",
+      "reservationRecommended": false,
+      "validationStatus": "validated-2026-09-17"
+    },
+    {
+      "id": "milu",
+      "name": "MiLu",
+      "category": "coffee",
+      "googlePlaceQuery": "MiLu Port de Pollenca",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=MiLu+Port+de+Pollenca",
+      "priority": "recommended",
+      "reservationRecommended": false,
+      "validationStatus": "validated-2026-09-17",
+      "reviewSnapshot": {
+        "rating": 4.9,
+        "count": 225,
+        "source": "Google/web snapshot",
+        "fetchedAt": "2026-09-17"
+      },
+      "coffeeProfile": {
+        "style": [
+          "specialty",
+          "pastry"
+        ],
+        "recommendedDrinks": [
+          "flat white",
+          "filter",
+          "matcha"
+        ],
+        "recommendedPastries": [
+          "homemade cakes",
+          "bakes"
+        ],
+        "routeRole": "on-route",
+        "morningRecommended": true,
+        "afternoonRecommended": true,
+        "latestSuggestedCoffeeTime": "15:45"
+      }
+    },
+    {
+      "id": "can-galmar",
+      "name": "Ca n Galmar",
+      "category": "coffee",
+      "googlePlaceQuery": "Ca n Galmar Port de Pollenca",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Ca+n+Galmar+Port+de+Pollenca",
+      "priority": "recommended",
+      "reservationRecommended": false,
+      "validationStatus": "validated-2026-09-17",
+      "reviewSnapshot": {
+        "rating": 5.0,
+        "count": 98,
+        "source": "Google/web snapshot",
+        "fetchedAt": "2026-09-17"
+      },
+      "coffeeProfile": {
+        "style": [
+          "espresso bar",
+          "bakery"
+        ],
+        "recommendedDrinks": [
+          "espresso",
+          "cappuccino"
+        ],
+        "recommendedPastries": [
+          "croissants",
+          "cinnamon buns",
+          "cakes"
+        ],
+        "routeRole": "on-route",
+        "morningRecommended": true,
+        "afternoonRecommended": true
+      }
+    },
+    {
+      "id": "bos-pollenca",
+      "name": "Bo's Pollenca",
+      "category": "coffee",
+      "googlePlaceQuery": "Bo's Pollenca Mallorca",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Bo%27s+Pollenca+Mallorca",
+      "priority": "recommended",
+      "reservationRecommended": false,
+      "validationStatus": "validated-2026-09-17",
+      "reviewSnapshot": {
+        "rating": 4.5,
+        "count": 330,
+        "source": "Google/web snapshot",
+        "fetchedAt": "2026-09-17"
+      },
+      "coffeeProfile": {
+        "style": [
+          "specialty",
+          "brunch"
+        ],
+        "recommendedDrinks": [
+          "flat white",
+          "matcha"
+        ],
+        "recommendedPastries": [
+          "sourdough bakes",
+          "cakes"
+        ],
+        "routeRole": "on-route",
+        "morningRecommended": true,
+        "afternoonRecommended": false
+      }
+    },
+    {
+      "id": "corella",
+      "name": "Corella Cafe",
+      "category": "coffee",
+      "googlePlaceQuery": "Corella Cafe Fornalutx Mallorca",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Corella+Cafe+Fornalutx+Mallorca",
+      "priority": "recommended",
+      "reservationRecommended": false,
+      "validationStatus": "validated-2026-09-17",
+      "reviewSnapshot": {
+        "rating": 4.9,
+        "count": 250,
+        "source": "Google/web snapshot",
+        "fetchedAt": "2026-09-17"
+      },
+      "coffeeProfile": {
+        "style": [
+          "specialty",
+          "pastry"
+        ],
+        "recommendedDrinks": [
+          "flat white",
+          "espresso"
+        ],
+        "recommendedPastries": [
+          "house bakes"
+        ],
+        "routeRole": "on-route",
+        "morningRecommended": true,
+        "afternoonRecommended": true
+      }
+    },
+    {
+      "id": "barbaflorida",
+      "name": "Barbaflorida Cafe",
+      "category": "coffee",
+      "googlePlaceQuery": "Barbaflorida Cafe Valldemossa",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Barbaflorida+cafe+Valldemossa",
+      "priority": "recommended",
+      "reservationRecommended": false,
+      "validationStatus": "validated-2026-09-17",
+      "reviewSnapshot": {
+        "rating": 4.8,
+        "count": 60,
+        "source": "Google/web snapshot",
+        "fetchedAt": "2026-09-17"
+      },
+      "coffeeProfile": {
+        "style": [
+          "specialty",
+          "cafe"
+        ],
+        "recommendedDrinks": [
+          "cappuccino",
+          "espresso"
+        ],
+        "recommendedPastries": [
+          "cakes"
+        ],
+        "routeRole": "on-route",
+        "morningRecommended": false,
+        "afternoonRecommended": true
+      }
+    },
+    {
+      "id": "can-molinas",
+      "name": "Ca'n Molinas",
+      "category": "bakery",
+      "googlePlaceQuery": "Ca'n Molinas Valldemossa",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Ca%27n+Molinas+Valldemossa",
+      "priority": "recommended",
+      "reservationRecommended": false,
+      "validationStatus": "validated-2026-09-17",
+      "coffeeProfile": {
+        "style": [
+          "traditional",
+          "bakery"
+        ],
+        "recommendedDrinks": [
+          "espresso"
+        ],
+        "recommendedPastries": [
+          "coca de patata"
+        ],
+        "routeRole": "on-route",
+        "afternoonRecommended": true
+      }
+    },
+    {
+      "id": "can-gelat",
+      "name": "Can Gelat",
+      "category": "coffee-food",
+      "googlePlaceQuery": "Can Gelat Santanyi Mallorca",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Can+Gelat+Santanyi+Mallorca",
+      "priority": "recommended",
+      "reservationRecommended": false,
+      "validationStatus": "validated-2026-09-17",
+      "reviewSnapshot": {
+        "rating": 4.7,
+        "count": 72,
+        "source": "Google/web snapshot",
+        "fetchedAt": "2026-09-17"
+      },
+      "coffeeProfile": {
+        "style": [
+          "local",
+          "cafe"
+        ],
+        "recommendedDrinks": [
+          "espresso",
+          "cappuccino"
+        ],
+        "recommendedPastries": [
+          "cakes"
+        ],
+        "routeRole": "on-route",
+        "afternoonRecommended": true
+      }
+    },
+    {
+      "id": "mistral",
+      "name": "Mistral Coffee Banc",
+      "category": "coffee",
+      "googlePlaceQuery": "Mistral Coffee Banc Palma Mallorca",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Mistral+Coffee+Banc+Palma+Mallorca",
+      "priority": "recommended",
+      "reservationRecommended": false,
+      "validationStatus": "validated-2026-09-17",
+      "reviewSnapshot": {
+        "rating": 4.7,
+        "count": 89,
+        "source": "Google/web snapshot",
+        "fetchedAt": "2026-09-17"
+      },
+      "coffeeProfile": {
+        "style": [
+          "specialty",
+          "roaster"
+        ],
+        "recommendedDrinks": [
+          "filter",
+          "cold brew",
+          "espresso"
+        ],
+        "recommendedPastries": [
+          "cakes"
+        ],
+        "routeRole": "on-route",
+        "afternoonRecommended": true,
+        "latestSuggestedCoffeeTime": "15:45"
+      }
+    },
+    {
+      "id": "rosevelvet",
+      "name": "Rosevelvet Bakery",
+      "category": "coffee-bakery",
+      "googlePlaceQuery": "Rosevelvet Bakery Palma Mallorca",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Rosevelvet+Bakery+Palma+Mallorca",
+      "priority": "recommended",
+      "reservationRecommended": false,
+      "validationStatus": "validated-2026-09-17",
+      "reviewSnapshot": {
+        "rating": 4.4,
+        "count": 237,
+        "source": "Google/web snapshot",
+        "fetchedAt": "2026-09-17"
+      },
+      "coffeeProfile": {
+        "style": [
+          "bakery",
+          "pastry-destination"
+        ],
+        "recommendedDrinks": [
+          "latte",
+          "cappuccino"
+        ],
+        "recommendedPastries": [
+          "croissants",
+          "cinnamon rolls",
+          "laminated pastries"
+        ],
+        "routeRole": "short-detour",
+        "afternoonRecommended": true,
+        "latestSuggestedCoffeeTime": "14:45"
+      }
+    },
+    {
+      "id": "can-josep",
+      "name": "Ca'n Josep",
+      "category": "dinner",
+      "googlePlaceQuery": "Ca'n Josep Port de Pollenca",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Ca%27n+Josep+Port+de+Pollenca",
+      "priority": "must-do",
+      "reservationRecommended": true,
+      "validationStatus": "validated-2026-09-17",
+      "reviewSnapshot": {
+        "rating": 4.6,
+        "count": 1232,
+        "source": "Google/web snapshot",
+        "fetchedAt": "2026-09-17"
+      },
+      "notes": [
+        "Seafood/Mallorcan; request sea-view/window table",
+        "Order ideas: scallops, prawns, fresh fish, seafood rice/paella"
+      ]
+    },
+    {
+      "id": "no31",
+      "name": "No.31 Restaurant",
+      "category": "dinner",
+      "googlePlaceQuery": "No 31 Port de Pollenca",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=No+31+Port+de+Pollenca",
+      "priority": "must-do",
+      "reservationRecommended": true,
+      "validationStatus": "validated-2026-09-17",
+      "reviewSnapshot": {
+        "rating": 4.8,
+        "count": 574,
+        "source": "Google/web snapshot",
+        "fetchedAt": "2026-09-17"
+      },
+      "notes": [
+        "Modern dinner/cocktail option for Saturday",
+        "Order fish/tuna/seasonal specials; pork bao optional only if curious"
+      ]
+    },
+    {
+      "id": "samfora",
+      "name": "S'Amfora",
+      "category": "dinner",
+      "googlePlaceQuery": "S'Amfora Port de Soller",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=S%27Amfora+Port+de+Soller",
+      "priority": "must-do",
+      "reservationRecommended": true,
+      "validationStatus": "validated-2026-09-17",
+      "reviewSnapshot": {
+        "rating": 4.8,
+        "count": 486,
+        "source": "Google/web snapshot",
+        "fetchedAt": "2026-09-17"
+      },
+      "notes": [
+        "Port de Soller waterfront seafood/paella; strong fit for Sunday"
+      ]
+    },
+    {
+      "id": "goia",
+      "name": "Goia",
+      "category": "dinner",
+      "googlePlaceQuery": "Goia Port de Soller",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Goia+Port+de+Soller",
+      "priority": "recommended",
+      "reservationRecommended": true,
+      "validationStatus": "validated-2026-09-17",
+      "reviewSnapshot": {
+        "rating": 4.7,
+        "count": 89,
+        "source": "Google/web snapshot",
+        "fetchedAt": "2026-09-17"
+      },
+      "notes": [
+        "Modern/trendy sea-view option; final Soller night"
+      ]
+    },
+    {
+      "id": "ses-oliveres",
+      "name": "Ses Oliveres",
+      "category": "dinner",
+      "googlePlaceQuery": "Ses Oliveres Port de Soller",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Ses+Oliveres+Port+de+Soller",
+      "priority": "recommended",
+      "reservationRecommended": true,
+      "validationStatus": "validated-2026-09-17",
+      "reviewSnapshot": {
+        "rating": 4.2,
+        "count": 1911,
+        "source": "Google/web snapshot",
+        "fetchedAt": "2026-09-17"
+      },
+      "notes": [
+        "Reliable seafood/rice promenade backup"
+      ],
+      "backupFor": "goia"
+    },
+    {
+      "id": "kingfisher",
+      "name": "Kingfisher Restaurant",
+      "category": "dinner",
+      "googlePlaceQuery": "Kingfisher Port de Soller",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Kingfisher+Restaurant+Port+de+Soller",
+      "priority": "backup",
+      "reservationRecommended": false,
+      "validationStatus": "validated-2026-09-17",
+      "reviewSnapshot": {
+        "rating": 4.8,
+        "count": 2431,
+        "source": "Google/web snapshot",
+        "fetchedAt": "2026-09-17"
+      },
+      "notes": [
+        "Excellent but currently closed Sunday/Monday; save for future, not valid for this stay"
+      ]
+    },
+    {
+      "id": "yara",
+      "name": "Yara Portals",
+      "category": "dinner",
+      "googlePlaceQuery": "Yara Portals Mallorca",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Yara+Portals+Puerto+Portals+Mallorca",
+      "priority": "must-do",
+      "reservationRecommended": true,
+      "validationStatus": "validated-2026-09-17",
+      "reviewSnapshot": {
+        "rating": 4.8,
+        "count": 256,
+        "source": "Google/web snapshot",
+        "fetchedAt": "2026-09-17"
+      },
+      "notes": [
+        "Japanese-Mediterranean; sushi + robata; marina terrace; cocktails"
+      ]
+    },
+    {
+      "id": "lila",
+      "name": "LILA Portals",
+      "category": "dinner",
+      "googlePlaceQuery": "LILA Portals Mallorca",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=LILA+Portals+Mallorca",
+      "priority": "recommended",
+      "reservationRecommended": true,
+      "validationStatus": "validated-2026-09-17",
+      "reviewSnapshot": {
+        "rating": 4.4,
+        "count": 1163,
+        "source": "Google/web snapshot",
+        "fetchedAt": "2026-09-17"
+      },
+      "backupFor": "yara"
+    },
+    {
+      "id": "laudat",
+      "name": "Restaurant Laudat",
+      "category": "lunch",
+      "googlePlaceQuery": "Restaurant Laudat Santanyi",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Restaurant+Laudat+Santanyi",
+      "priority": "must-do",
+      "reservationRecommended": true,
+      "validationStatus": "validated-2026-09-17",
+      "reviewSnapshot": {
+        "rating": 4.4,
+        "count": 371,
+        "source": "Google/web snapshot",
+        "fetchedAt": "2026-09-17"
+      },
+      "notes": [
+        "Polished Santanyi lunch; seafood, octopus, fish; courtyard"
+      ]
+    },
+    {
+      "id": "elcamino",
+      "name": "El Camino Palma",
+      "category": "dinner",
+      "googlePlaceQuery": "El Camino Palma Mallorca",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=El+Camino+Palma+Mallorca",
+      "priority": "must-do",
+      "reservationRecommended": true,
+      "validationStatus": "validated-2026-09-17",
+      "reviewSnapshot": {
+        "rating": 4.6,
+        "count": 1181,
+        "source": "Google/web snapshot",
+        "fetchedAt": "2026-09-17"
+      },
+      "notes": [
+        "Chef-led tapas counter; book early seating about 18:00-18:15"
+      ]
+    },
+    {
+      "id": "ombu",
+      "name": "OMBU Palma",
+      "category": "dinner",
+      "googlePlaceQuery": "OMBU Palma Mallorca",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=OMBU+Passeig+del+Born+Palma",
+      "priority": "recommended",
+      "reservationRecommended": true,
+      "validationStatus": "validated-2026-09-17",
+      "reviewSnapshot": {
+        "rating": 4.4,
+        "count": 3159,
+        "source": "Google/web snapshot",
+        "fetchedAt": "2026-09-17"
+      },
+      "notes": [
+        "Creative fusion tapas/cocktails; flexible backup"
+      ],
+      "backupFor": "elcamino"
+    },
+    {
+      "id": "abaco",
+      "name": "Bar Abaco",
+      "category": "bar",
+      "googlePlaceQuery": "Bar Abaco Palma Mallorca",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Bar+Abaco+Palma+Mallorca",
+      "priority": "recommended",
+      "reservationRecommended": false,
+      "validationStatus": "validated-2026-09-17",
+      "reviewSnapshot": {
+        "rating": 3.8,
+        "count": 1779,
+        "source": "Google/web snapshot",
+        "fetchedAt": "2026-09-17"
+      },
+      "notes": [
+        "Spectacle/ambience stop; one drink; no reservation; opens 20:00"
+      ]
+    },
+    {
+      "id": "afterlanding",
+      "name": "After Landing Cocktail Art",
+      "category": "bar",
+      "googlePlaceQuery": "After Landing Cocktail Art Palma",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=After+Landing+Cocktail+Art+Palma",
+      "priority": "must-do",
+      "reservationRecommended": false,
+      "validationStatus": "validated-2026-09-17",
+      "reviewSnapshot": {
+        "rating": 5.0,
+        "count": 860,
+        "source": "Google/web snapshot",
+        "fetchedAt": "2026-09-17"
+      },
+      "notes": [
+        "Cocktail-quality stop after Abaco"
+      ]
+    }
+  ]
+}
