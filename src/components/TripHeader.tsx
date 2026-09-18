@@ -1,11 +1,13 @@
 import { LinearGradient } from 'expo-linear-gradient';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { colors, radius, spacing } from '@/src/theme/tokens';
 
 export function TripHeader() {
+  const { width } = useWindowDimensions();
+  const compact = width <= 480;
   return (
-    <LinearGradient colors={[colors.forestDark, '#2D7256']} style={styles.hero}>
+    <LinearGradient colors={[colors.forestDark, '#2D7256']} style={[styles.hero, compact && styles.heroCompact]}>
       <View style={styles.top}>
         <View style={styles.cityPill}>
           <MaterialCommunityIcons name="map-marker" size={14} color={colors.lime} />
@@ -16,10 +18,10 @@ export function TripHeader() {
       <View style={styles.bottom}>
         <View>
           <Text style={styles.kicker}>PORTUGAL + SPAIN</Text>
-          <Text style={styles.title}>A little{'\n'}further.</Text>
+          <Text style={[styles.title, compact && styles.titleCompact]}>A little{'\n'}further.</Text>
         </View>
-        <View style={styles.sun}>
-          <MaterialCommunityIcons name="white-balance-sunny" size={34} color={colors.forestDark} />
+        <View style={[styles.sun, compact && styles.sunCompact]}>
+          <MaterialCommunityIcons name="white-balance-sunny" size={compact ? 31 : 34} color={colors.forestDark} />
         </View>
       </View>
       <Text style={styles.hotel}>Five bases · Lisbon, Porto & Mallorca</Text>
@@ -29,6 +31,7 @@ export function TripHeader() {
 
 const styles = StyleSheet.create({
   hero: { borderRadius: 28, minHeight: 280, padding: spacing.xl, justifyContent: 'space-between', overflow: 'hidden' },
+  heroCompact: { minHeight: 252, padding: 20 },
   top: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: spacing.sm },
   cityPill: { backgroundColor: 'rgba(255,255,255,0.13)', borderRadius: radius.pill, paddingHorizontal: 11, paddingVertical: 7, flexDirection: 'row', alignItems: 'center', gap: 5 },
   city: { color: colors.white, fontSize: 12, fontWeight: '700' },
@@ -36,6 +39,8 @@ const styles = StyleSheet.create({
   bottom: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-end' },
   kicker: { color: colors.lime, fontSize: 10, letterSpacing: 1.5, fontWeight: '800', marginBottom: 8 },
   title: { color: colors.white, fontSize: 48, lineHeight: 47, fontWeight: '800', letterSpacing: -2 },
+  titleCompact: { fontSize: 44, lineHeight: 43 },
   sun: { width: 72, height: 72, borderRadius: 36, backgroundColor: colors.lime, alignItems: 'center', justifyContent: 'center' },
+  sunCompact: { width: 64, height: 64, borderRadius: 32 },
   hotel: { color: '#D7E4DD', fontSize: 13, fontWeight: '600' }
 });

@@ -1,7 +1,9 @@
 import { PropsWithChildren, ReactNode } from 'react';
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Platform, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { colors, spacing } from '@/src/theme/tokens';
+
+const webBottomPadding = 'calc(74px + env(safe-area-inset-bottom))' as unknown as number;
 
 export function Screen({ children, title, eyebrow, right }: PropsWithChildren<{
   title?: string;
@@ -28,7 +30,14 @@ export function Screen({ children, title, eyebrow, right }: PropsWithChildren<{
 
 const styles = StyleSheet.create({
   safe: { flex: 1, backgroundColor: colors.canvas },
-  content: { width: '100%', maxWidth: 880, alignSelf: 'center', padding: spacing.lg, paddingBottom: 120, gap: spacing.lg },
+  content: {
+    width: '100%',
+    maxWidth: 880,
+    alignSelf: 'center',
+    padding: spacing.lg,
+    paddingBottom: Platform.OS === 'web' ? webBottomPadding : 120,
+    gap: spacing.lg
+  },
   heading: { flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'space-between', marginTop: spacing.sm },
   headingText: { flex: 1 },
   eyebrow: { color: colors.coral, fontSize: 12, fontWeight: '800', letterSpacing: 1.3, textTransform: 'uppercase', marginBottom: 5 },
