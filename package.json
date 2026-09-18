@@ -9,7 +9,7 @@
     "web": "expo start --web",
     "generate:icons": "node scripts/generate-icons.mjs",
     "typecheck": "tsc --noEmit",
-    "predeploy": "expo export --platform web && cp dist/index.html dist/404.html",
+    "predeploy": "expo export --platform web && node scripts/prepare-gh-pages.mjs",
     "deploy": "gh-pages --nojekyll -d dist"
   },
   "dependencies": {
